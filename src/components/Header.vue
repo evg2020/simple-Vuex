@@ -3,17 +3,23 @@
     <h2>Header</h2>  
    
     <h2>{{usersList}}</h2>  
+    <h2>{{list}}</h2>  
     <hr>
 </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 
+import { mapGetters } from 'vuex'
 export default {
     name: "Header", 
     computed: {
-        ...mapGetters('users',['usersList'])
+        ...mapGetters('users',['usersList']),
+
+        list () {
+            return this.$store.getters.usersList
+        }
+
     }    
 }
 </script>

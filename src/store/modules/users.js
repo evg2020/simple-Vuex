@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-const userStore = {
+export default {
     namespaced : true,
     state: {
         list:{
@@ -12,21 +12,25 @@ const userStore = {
                 name:"petr",
                 age:34,
             }
-        }
+         },
+        name: "evg",
     },
 
     getters: {
-        usersList: ({list})=>Object.values(list)
-        // usersList: (state) => Object.values(state.list)
+        usersList: ({list})=>Object.values(list),
+        // usersList: (state) =>{ 
+        //     return Object.values(state.list)
+        // },
+        userName:(state)=>state.name
     },
     
     mutations: {
         ADD_USER(state, user ){
             console.log(user); 
-            Vue.set(state.list, user.id, user)
-           
-        }
+            Vue.set(state.list, user.id, user)           
+        },
     },
+
     actions: {
         addNewUser({ commit }, user){
             const newOne ={...user, id: String(Math.random())}
@@ -38,4 +42,4 @@ const userStore = {
         }
     }
 }
- export default userStore;  
+//  export default userStore;  

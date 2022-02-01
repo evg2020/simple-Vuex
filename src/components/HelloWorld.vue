@@ -15,6 +15,7 @@ export default {
 
   methods: {
     ...mapActions("users", ["addNewUser"]),
+    
     addUser() {
       const newOne = {
         name: "Span",
